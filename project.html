@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YaatraPath - Udaipur</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    
+
+   <header class="main-header">
+    <div class="container">
+        <h1>YaatraPath</h1>
+               
+        <button id="theme-toggle-btn" class="theme-toggle" title="Toggle theme">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+</header>
+
+    <div class="my-bookings-btn" id="myBookingsBtn">
+        <i class="fas fa-shopping-cart"></i>
+        <div class="notification-badge" id="bookingsBadge">0</div>
+    </div>
+
+    <section class="hero-section">
+        <div class="hero-slideshow">
+            <div class="slide">
+                <img src="first.jpg" alt="Scenic view of a palace on a lake in Udaipur">
+            </div>
+            <div class="slide">
+                <img src="second.jpg" alt="A colorful street in Udaipur">
+            </div>
+            <div class="slide">
+                <img src="third.jpg" alt="Sunset over a tranquil ghat in Udaipur">
+            </div>
+            <div class="slide">
+                <img src="fourth.jpg" alt="Panoramic cityscape of Udaipur">
+            </div>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Udaipur, Unpackaged.</h1>
+            <p>Stay. Explore. Empower.</p>
+            <button id="hero-journey-btn" class="btn btn-accent">Begin Your Journey</button>
+        </div>
+    </section>
+  
+    <section class="hotel-hub" id="hotelHub">
+        <div class="container">
+            <div class="section-title">
+                <h2>Hotel Booking Hub</h2>
+                <p>Find your perfect stay in the City of Lakes</p>
+            </div>
+            <div class="hotel-list" id="hotelList"></div>
+            <div class="hotel-detail" id="hotelDetail" style="display: none;">
+                <div class="hotel-detail-header">
+                    <div class="back-btn" id="backToList">
+                        <i class="fas fa-arrow-left"></i> Back to List
+                    </div>
+                    <div class="hotel-rating" id="detailRating"></div>
+                </div>
+                <h2 class="hotel-name" id="detailName"></h2>
+                <p class="hotel-description" id="detailDescription"></p>
+                <div class="booking-options">
+                    <div class="booking-option active" data-option="night">Night Stay</div>
+                    <div class="booking-option" data-option="day">Day Stay</div>
+                    <div class="booking-option" data-option="hourly">Hourly Rent</div>
+                </div>
+                <div class="price-display" id="priceDisplay">₹0</div>
+                <button class="btn" id="bookStayBtn">Book Your Stay</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="packages-section" class="content-section bg-light">
+    <div class="container">
+        <div id="packages-list-view">
+            <div class="section-title">
+                <h2>Curated Tour Packages</h2>
+                <p>Choose a plan that fits your schedule and explore the best of Udaipur.</p>
+            </div>
+            <div class="card-grid" id="packages-grid">
+                </div>
+        </div>
+
+        <div id="packages-detail-view" style="display: none;">
+            <button class="back-to-list-btn" id="back-to-packages-list-btn"><i class="fa-solid fa-arrow-left"></i> Back to All Packages</button>
+            <div class="package-detail-content">
+                <div class="package-image-container">
+                    <img id="package-detail-image" src="" alt="Tour Package Image">
+                </div>
+                <div class="package-info">
+                    <h2 id="package-detail-title"></h2>
+                    <p class="package-duration" id="package-detail-duration"></p>
+                    <p id="package-detail-description"></p>
+                    
+                    <h3>Daily Itinerary</h3>
+                    <div id="package-detail-itinerary"></div>
+
+                    <h3>What's Included</h3>
+                    <ul class="inclusions-list" id="package-detail-inclusions"></ul>
+                    
+                    <div class="detail-booking">
+    <div class="quantity-selector">
+        <label>Persons:</label>
+        <button id="quantity-minus" class="quantity-btn">-</button>
+        <span id="quantity-display">1</span>
+        <button id="quantity-plus" class="quantity-btn">+</button>
+    </div>
+    <div class="price-display-container">
+        <span class="detail-price" id="package-total-price"></span>
+        <span class="per-person-price" id="package-per-person-price"></span>
+    </div>
+    <button class="btn btn-primary" id="book-package-btn">Book This Package</button>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+ <section class="udaipur-guide" id="udaipurGuide">
+    <div class="container">
+        <div class="section-title">
+            <h2>Your Udaipur Guide</h2>
+            <p>Discover the best experiences in the Venice of the East</p>
+        </div>
+        <div class="guide-grid">
+            <div class="guide-card" id="guideHotel">
+                <div class="guide-icon"><i class="fas fa-hotel"></i></div>
+                <h3 class="guide-title">Book a Hotel</h3>
+                <p>Find your perfect stay</p>
+                <a href="#hotelHub" class="btn btn-outline">View Hotels</a>
+            </div>
+            <div class="guide-card" id="guideCab">
+                <div class="guide-icon"><i class="fas fa-taxi"></i></div>
+                <h3 class="guide-title">Book a Cab</h3>
+                <p>Travel around the city</p>
+                <button class="btn btn-outline cab-btn">Book a Cab</button>
+            </div>
+            <div class="guide-card" id="guideShows">
+                <div class="guide-icon"><i class="fas fa-theater-masks"></i></div>
+                <h3 class="guide-title">Cultural Shows</h3>
+                <p>Experience local performances</p>
+                <a href="#shows-section" class="btn btn-outline">Browse Events</a>
+            </div>
+            <div class="guide-card" id="guideBooking">
+                <div class="guide-icon"><i class="fas fa-user-tie"></i></div>
+                <h3 class="guide-title">Book a Guide</h3>
+                <p>Get expert local insights</p>
+                <button class="btn btn-outline guide-btn">Find a Guide</button>
+            </div>
+            <div class="guide-card" id="guideArtisans">
+                <div class="guide-icon"><i class="fas fa-store"></i></div>
+                <h3 class="guide-title">Artisans & Markets</h3>
+                <p>Discover local crafts</p>
+                <a href="#crafts-section" class="btn btn-outline">Discover Crafts</a>
+            </div>
+            <div class="guide-card">
+                <div class="guide-icon"><i class="fas fa-coffee"></i></div>
+                <h3 class="guide-title">Explore Cafes</h3>
+                <p>Find the best local eateries</p>
+                <a href="#guideCafes" class="btn btn-outline">Find Cafes</a>
+            </div>
+            <div class="guide-card">
+                <div class="guide-icon">
+                    <i class="fas fa-suitcase-rolling"></i>
+                </div>
+                <h3 class="guide-title">Tour Packages</h3>
+                <p>Explore Udaipur with our curated tour packages.</p>
+                <a href="#packages-section" class="btn btn-outline">View Packages</a>
+            </div>
+        </div>
+        <div class="cafe-carousel-container" id="guideCafes">
+            <div class="section-title">
+                <h3>Popular Cafes</h3>
+                <p>Enjoy the best food and views</p>
+            </div>
+            <div class="cafe-carousel" id="cafeCarousel"></div>
+        </div>
+    </div>
+</section>
+
+    <section class="explore-section" id="exploreSection">
+        <div class="container">
+            <div class="section-title">
+                <h2>Explore Your Udaipur</h2>
+                <p>More Than a Destination. An Experience.</p>
+            </div>
+            <div class="explore-cards">
+                <div class="explore-card">
+                    <img src="ambrai gath.jpg" alt="Ambrai Ghat" class="explore-image">
+                    <div class="explore-content">
+                        <h3>Ambrai Ghat</h3>
+                        <p>Experience the most picturesque sunset spot in Udaipur with views of the City Palace and Lake Pichola.</p>
+                    </div>
+                </div>
+                <div class="explore-card">
+                    <img src="bahubali hills.jpg" alt="Bahubali Hills" class="explore-image">
+                    <div class="explore-content">
+                        <h3>Bahubali Hills</h3>
+                        <p>Trek to this hidden gem for panoramic views of the city and surrounding Aravalli mountains.</p>
+                    </div>
+                </div>
+                <div class="explore-card">
+                    <img src="neemach.jpg" alt="Neemach Mata Temple" class="explore-image">
+                    <div class="explore-content">
+                        <h3>Neemach Mata Temple</h3>
+                        <p>Visit this ancient temple perched on a hilltop offering breathtaking views of Fateh Sagar Lake.</p>
+                    </div>
+                </div>
+                <div class="explore-card">
+                    <img src="city_palace.jpg" alt="City Palace" class="explore-image">
+                    <div class="explore-content">
+                        <h3>City Palace</h3>
+                        <p>Discover the splendor of Rajasthan by visiting the majestic City Palace in Udaipur, a regal masterpiece.</p>
+                    </div>
+                </div>
+                <div class="explore-card">
+                    <img src="lake pichola.jpg" alt="Lake Pichola" class="explore-image">
+                    <div class="explore-content">
+                        <h3>Lake Pichola</h3>
+                        <p>Experience the breathtaking beauty of Lake Pichola in Udaipur, where serene waters create unforgettable moments.</p>
+                    </div>
+                </div>
+                <div class="explore-card">
+                    <img src="jag mandir.jpg" alt="Jag Mandir" class="explore-image">
+                    <div class="explore-content">
+                        <h3>Jag Mandir</h3>
+                        <p>Discover the enchanting charm of Jag Mandir, a stunning island palace that offers a tranquil escape.</p>
+                    </div>
+                </div>
+                <div class="explore-card">
+                    <img src="sajjangarh palace.jpg" alt="Sajjangarh Palace" class="explore-image">
+                    <div class="explore-content">
+                        <h3>Sajjangarh Palace</h3>
+                        <p>Discover the breathtaking beauty of Sajjangarh Palace, especially during the monsoon season.</p>
+                    </div>
+                </div>
+                <div class="explore-card">
+                    <img src="vintage car museum copy.jpg" alt="Vintage Car Museum" class="explore-image">
+                    <div class="explore-content">
+                        <h3>Vintage Car Museum</h3>
+                        <p>Explore an impressive collection of vintage and classic automobiles in a unique and fascinating setting.</p>
+                    </div>
+                </div>
+                <div class="explore-card">
+                    <img src="jagdish temple.jpg" alt="Jagdish Mandir" class="explore-image">
+                    <div class="explore-content">
+                        <h3>Jagdish Mandir</h3>
+                        <p>Experience breathtaking architecture, intricate carvings, and spiritual serenity that showcase Rajasthan’s rich heritage.</p>
+                    </div>
+                </div>
+                <div class="explore-card">
+                    <img src="gulab baag.jpg" alt="Udaipur Zoo" class="explore-image">
+                    <div class="explore-content">
+                        <h3>Udaipur Zoo</h3>
+                        <p>Visit Gulab Bagh to enjoy its lush gardens, historic charm, and serene ambiance, making it a perfect spot for relaxation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="impact-dashboard" id="impactDashboard">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="impact-title">Your Impact</h2>
+                <p>See how your choices make a difference</p>
+            </div>
+            <div class="impact-items">
+                <div class="impact-item" id="sustainableStay">
+                    <div class="impact-icon"><i class="fas fa-hotel"></i></div>
+                    <div class="impact-counter" id="staffCounter">0</div>
+                    <div class="impact-label">Local Staff Supported</div>
+                </div>
+                <div class="impact-item" id="ecoRide">
+                    <div class="impact-icon"><i class="fas fa-leaf"></i></div>
+                    <div class="impact-counter" id="co2Counter">0</div>
+                    <div class="impact-label">kg CO2 Saved</div>
+                </div>
+                <div class="impact-item" id="localEmpowerment">
+                    <div class="impact-icon"><i class="fas fa-hands-helping"></i></div>
+                    <div class="impact-counter" id="guideCounter">0</div>
+                    <div class="impact-label">Local Guides Empowered</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="shows-section" class="content-section">
+        <div class="container">
+            <div id="shows-list">
+                <div class="section-title">
+                    <h2>Cultural Shows & Events</h2>
+                    <p>Experience the rich, vibrant heritage of Rajasthan.</p>
+                </div>
+                <div class="card-grid" id="shows-grid"></div>
+            </div>
+            <div id="shows-detail" style="display: none;">
+                <button class="back-to-list-btn" id="back-to-shows-list-btn"><i class="fa-solid fa-arrow-left"></i> Back to Shows</button>
+                <div class="detail-content-grid">
+                    <div class="detail-slideshow-container">
+                        <div id="shows-slideshow"></div>
+                        <button class="slide-arrow prev" id="shows-prev-slide">&#10094;</button>
+                        <button class="slide-arrow next" id="shows-next-slide">&#10095;</button>
+                    </div>
+                    <div class="detail-info">
+                        <h2 id="shows-detail-name"></h2>
+                        <p class="detail-location"><i class="fas fa-map-marker-alt"></i> <span id="shows-detail-location"></span></p>
+                        <p id="shows-detail-description"></p>
+                        <div class="detail-rating" id="shows-detail-rating"></div>
+                        <div class="detail-booking">
+                            <span class="detail-price" id="shows-detail-price"></span>
+                            <button class="btn btn-primary" id="book-show-ticket-btn">Book Tickets</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="crafts-section" class="content-section bg-light">
+        <div class="container">
+            <div id="crafts-list">
+                <div class="section-title">
+                    <h2>Artisans & Markets</h2>
+                    <p>Discover unique, handcrafted souvenirs and support local talent.</p>
+                </div>
+                <div class="card-grid" id="crafts-grid"></div>
+            </div>
+            <div id="crafts-detail" style="display: none;">
+                <button class="back-to-list-btn" id="back-to-crafts-list-btn"><i class="fa-solid fa-arrow-left"></i> Back to List</button>
+                <div class="detail-content-grid">
+                    <div class="detail-slideshow-container">
+                        <div id="crafts-slideshow"></div>
+                        <button class="slide-arrow prev" id="crafts-prev-slide">&#10094;</button>
+                        <button class="slide-arrow next" id="crafts-next-slide">&#10095;</button>
+                    </div>
+                    <div class="detail-info">
+                        <h2 id="crafts-detail-name"></h2>
+                        <p class="detail-location"><i class="fas fa-map-marker-alt"></i> <span id="crafts-detail-location"></span></p>
+                        <p id="crafts-detail-description"></p>
+                        <div class="detail-booking">
+                            <span class="detail-price" id="crafts-detail-price"></span>
+                            <button class="btn btn-primary" id="book-craft-visit-btn">Book a Visit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<div class="modal-overlay" id="bookingsModal">
+    <div class="modal">
+        <div class="modal-header">
+            <h3 class="modal-title">My Bookings</h3>
+            <button class="modal-close">&times;</button>
+        </div>
+        <div class="modal-content">
+            <div class="bookings-list" id="bookingsList"></div>
+            <div class="total-section" id="totalSection" style="display: none;">
+                <span>Total</span>
+                <span class="total-price" id="totalPrice">₹0</span>
+            </div>
+            
+            <button class="btn btn-primary" id="proceed-to-pay-btn" style="width: 100%; margin-top: 20px;">
+                Proceed to Pay
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" id="cafe-order-modal">
+    <div class="modal">
+        <div class="modal-header">
+            <h3 class="modal-title" id="cafe-order-title">Place Your Order</h3>
+            <button class="modal-close">&times;</button>
+        </div>
+        <div class="modal-content">
+            <div id="menu-view">
+                <div class="menu-item-list" id="menu-item-list">
+                    </div>
+                <div class="modal-cart-summary" id="modal-cart-summary">
+                    <span>Total:</span>
+                    <span id="modal-cart-total">₹0</span>
+                </div>
+                <button class="btn btn-primary" id="proceed-to-delivery-btn" style="width: 100%;">Proceed to Delivery</button>
+            </div>
+
+            <div id="delivery-view" style="display: none;">
+                <div class="form-group">
+                    <label for="delivery-location">Enter Your Delivery Location</label>
+                    <input type="text" id="delivery-location" placeholder="e.g., Hotel Name, Street Address" required>
+                </div>
+                <button class="btn btn-primary" id="proceed-to-food-payment-btn" style="width: 100%;">Proceed to Payment</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" id="cabModal">
+    <div class="modal">
+        <div class="modal-header">
+            <h3 class="modal-title">Book an Eco-Cab</h3>
+            <button class="modal-close">&times;</button>
+        </div>
+        <div class="modal-content">
+            <form id="cabForm">
+                <div class="form-group">
+                    <label for="pickupLocation">Pickup Location</label>
+                    <input type="text" id="pickupLocation" placeholder="Enter pickup location" required>
+                </div>
+                <div class="form-group">
+                    <label for="dropLocation">Drop Location</label>
+                    <input type="text" id="dropLocation" placeholder="Enter drop location" required>
+                </div>
+                <div class="form-group">
+                    <label for="cabType">Cab Type</label>
+                    <select id="cabType">
+                        <option value="eco">Eco-Friendly Electric (₹300)</option>
+                        <option value="premium">Premium Sedan (₹500)</option>
+                        <option value="suv">SUV (₹700)</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Book Now</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" id="paymentModal">
+    <div class="modal">
+        <div class="modal-header">
+            <h3 class="modal-title">Complete Your Payment</h3>
+            <button class="modal-close">&times;</button>
+        </div>
+        <div class="modal-content">
+            <form id="payment-form">
+                <div class="form-group">
+                    <label for="card-name">Cardholder Name</label>
+                    <input type="text" id="card-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="card-number">Card Number</label>
+                    <input type="text" id="card-number" placeholder="4242 4242 4242 4242" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="card-expiry">Expiry Date</label>
+                        <input type="text" id="card-expiry" placeholder="MM/YY" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="card-cvv">CVV</label>
+                        <input type="text" id="card-cvv" placeholder="123" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" id="pay-now-btn" style="width: 100%;">
+                    Pay <span id="payment-amount"></span>
+                </button>
+                <div id="payment-processing" style="display: none; text-align: center; margin-top: 15px;">
+                    Processing payment...
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+    <div class="modal-overlay" id="guideModal">
+    <div class="modal">
+        <div class="modal-header">
+            <h3 class="modal-title">Book a Local Guide</h3>
+            <button class="modal-close">&times;</button>
+        </div>
+        <div class="modal-content">
+            <div class="guide-list" id="guide-list-container">
+                </div>
+        </div>
+    </div>
+</div>
+    
+    <div class="modal-overlay" id="confirmationModal">
+    <div class="modal confirmation-modal">
+        <div class="confirmation-icon">
+            <i class="fas fa-check"></i>
+        </div>
+        <h2 id="confirm-title">Booking Confirmed!</h2>
+        <p id="confirm-summary">Your booking has been added to your list.</p>
+       <div class="confirmation-actions">
+    <button class="btn btn-outline" id="continue-exploring-btn">Continue Exploring</button>
+    <button class="btn btn-primary" id="view-all-bookings-btn">View All Bookings</button>
+    <button class="btn btn-accent" id="confirm-and-pay-btn">Pay Now</button>
+</div>
+    </div>
+</div>
+
+    <div class="modal-overlay" id="locationModal">
+        <div class="modal location-modal">
+            <div class="modal-header">
+                <h3 class="modal-title" id="location-cafe-name">Cafe Location</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-content">
+                <p class="location-address-label">Address:</p>
+                <p class="location-address-text" id="location-cafe-address">123 Lake View Road, Udaipur</p>
+                <p class="location-confirmation-msg"><i class="fas fa-envelope"></i>A link to the location has been sent to your email.</p>
+                <button class="btn btn-primary" id="close-location-modal-btn">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast-container"></div>
+    <script src="script.js"></script>
+
+</body>
+</html>
