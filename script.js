@@ -1,9 +1,9 @@
 const hotels = [{
     id: 1, 
-    name: "Lake Palace Hotel",//so jaise kisi ne hotal ka naam likha  lake hotel so vo yaha pe likhe ga .. so koi nhi naam apan ko show karvana hai vo yaha pe ok
+    name: "Taj Lake Palace",//so jaise kisi ne hotal ka naam likha  lake hotel so vo yaha pe likhe ga .. so koi nhi naam apan ko show karvana hai vo yaha pe ok
     rating: 5,
     description: "A luxury hotel situated in the middle of Lake Pichola offering stunning views of the City Palace and surrounding mountains.",
-    image: "https://source.unsplash.com/600x400/?palace,hotel", 
+    image: "images/lake.jpg", 
      prices: {
         night : 12000,
         day: 6000, // yaha  karna hai cont hotels mai  const cafe mai mat jana 
@@ -11,10 +11,10 @@ const hotels = [{
     }
 }, {
     id: 2,
-    name: "Haveli Heritage Inn",
+    name: "Amet Haveli, A Heritage hotel",
     rating: 4,
     description: "A beautifully restored heritage property in the heart of the old city, featuring traditional Rajasthani architecture and modern amenities.",
-    image: "https://source.unsplash.com/600x400/?haveli,hotel",
+    image: "images/amet.webp",
     prices: {
         night: 8000,
         day: 4000,
@@ -22,10 +22,10 @@ const hotels = [{
     }
 }, {
     id: 3,
-    name: "Lakeside Retreat",
+    name: "The Leela Palace ",
     rating: 4,
     description: "A peaceful retreat on the banks of Fateh Sagar Lake with lush gardens and comfortable rooms with lake views.",
-    image: "https://source.unsplash.com/600x400/?lake,resort",
+    image: "images/lella.jpg",
     prices: {
         night: 6000,
         day: 3000,
@@ -33,10 +33,10 @@ const hotels = [{
     }
 }, {
     id: 4,
-    name: "Royal Udaipur Suites",
+    name: "Royal Rafahiya Haveli ",
     rating: 5,
     description: "Opulent suites in a former royal residence, offering a glimpse into the royal lifestyle with modern luxury.",
-    image: "https://source.unsplash.com/600x400/?luxury,suite",
+    image: "images/hotel.jpg",
   
   prices: {
         night: 15000,
@@ -48,7 +48,7 @@ id: 5,
 name: "Shiv Niwas Palace",
 rating: 5,
 description: "A beautiful historic hotel with stunning lake views, giving visitors a chance to experience royal elegance.",
- image: "/shiv.webp",
+ image: "images/shiv.webp",
  prices: {
         night: 15000,
         day: 7500,
@@ -129,21 +129,21 @@ const craftsLocations = [{
     location: "3 km west of Udaipur",
     description: "A rural arts and crafts complex showcasing the rich and varied craft traditions of Rajasthan.",
     price: 500,
-    images: ["https://source.unsplash.com/800x600/?handicraft,village,india", "https://source.unsplash.com/800x600/?pottery,india", "https://source.unsplash.com/800x600/?textile,rajasthan"]
+    images: ["images/s1.jpg", "images/s2.webp", "images/s3.jpg"]
 }, {
     id: 2,
     name: "Hathi Pol Bazaar",
     location: "City Palace Road",
     description: "Famous for textiles, especially bandhani (tie-dye) and block printing. Meet local artisans and see them at work.",
-    price: 400,
-    images: ["https://source.unsplash.com/800x600/?market,textile,india", "https://source.unsplash.com/800x600/?colorful,fabric", "https://source.unsplash.com/800x600/?indian,market,street"]
+    price: 0,
+    images: ["images/h1.jpg", "images/h2.jpg", "images/h3.jpg"]
 }, {
     id: 3,
     name: "Miniature Painting Workshop",
     location: "Bhattiyani Chohatta",
     description: "Learn the ancient art of Rajasthani miniature painting from master artists in a hands-on workshop.",
-    price: 1200,
-    images: ["https://source.unsplash.com/800x600/?painting,art,workshop", "https://source.unsplash.com/800x600/?artist,painting,india", "https://source.unsplash.com/800x600/?miniature,art"]
+    price: 50,
+    images: ["images/m1.jpg", "images/m2.jpg", "images/m3.jpg"]
 }];
 
 const culturalShows = [{
@@ -151,7 +151,7 @@ const culturalShows = [{
     name: "Dharohar Folk Dance",
     location: "Bagore Ki Haveli",
     description: "Experience an evening of vibrant Rajasthani folk dance and traditional music in a beautiful haveli setting.",
-    price: 800,
+    price: 500,
     rating: 4.8,
     images: ["images/dharohar.webp", "images/dharohar 2.jpg", "images/Dharohar3.jpg"]
 }, {
@@ -177,16 +177,16 @@ const tourGuides = [{
     name: "Rajesh Kumar",
     languages: ["English", "Hindi"],
     rating: 4.8,
-    price: 2000,
-    image: "https://source.unsplash.com/200x200/?portrait,man,indian,guide",
+    price: 1000,
+    image: "images/g3.png",
     specialty: "Expert in palace history and architecture."
 }, {
     id: 2,
     name: "Priya Singh",
     languages: ["English", "French", "Hindi"],
     rating: 4.9,
-    price: 2200,
-    image: "https://source.unsplash.com/200x200/?portrait,woman,indian,guide",
+    price: 1800,
+    image: "images/g4.png",
     specialty: "Specializes in local culture and cuisine tours."
 }, {
     id: 3,
@@ -194,7 +194,7 @@ const tourGuides = [{
     languages: ["English", "German", "Hindi"],
     rating: 4.7,
     price: 2100,
-    image: "https://source.unsplash.com/200x200/?portrait,man,indian,smiling",
+    image: "images/g2.jpg",
     specialty: "Photography expert and hidden gems finder."
 }, {
     id: 4,
@@ -202,7 +202,7 @@ const tourGuides = [{
     languages: ["English", "Hindi"],
     rating: 4.6,
     price: 1800,
-    image: "https://source.unsplash.com/200x200/?portrait,woman,indian,smiling",
+    image: "images/g5.png",
     specialty: "Leads spiritual and temple tours."
 }, {
     id: 5,
@@ -210,7 +210,7 @@ const tourGuides = [{
     languages: ["English", "Spanish", "Hindi"],
     rating: 4.9,
     price: 2500,
-    image: "https://source.unsplash.com/200x200/?portrait,man,guide",
+    image: "images/g1.jpg",
     specialty: "Specializes in trekking and nature tours around Udaipur."
 }];
 
