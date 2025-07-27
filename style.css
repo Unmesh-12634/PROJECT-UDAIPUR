@@ -11,7 +11,7 @@
     --font-headline: 'Montserrat', sans-serif;
     --font-body: 'Lato', sans-serif;
     --border-color: #dee2e6;
-    --card-bg: #ffffff;
+
 }
 
 * {
@@ -985,6 +985,33 @@ body.dark-theme {
     border-color: var(--dark-blue);
 }
 
+:root {
+    /* ... (all your existing variables) ... */
+    --card-bg: #ffffff;
+}
+
+.footer-bottom {
+    border-top: 1px solid var(--border-color);
+    padding: 30px 0;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-bottom p {
+    margin-bottom: 10px;
+}
+
+.footer-bottom p:last-child {
+    margin-bottom: 0;
+}
+
+.footer-bottom .tagline {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 15px;
+}
+
+/* --- Professional Footer Styles --- */
 .main-footer {
     background-color: var(--dark-blue);
     color: rgba(255, 255, 255, 0.8);
@@ -992,7 +1019,7 @@ body.dark-theme {
 }
 
 body.dark-theme .main-footer {
-    background-color: #111; 
+    background-color: #111; /* Even darker for dark mode */
 }
 
 .footer-main {
@@ -1062,23 +1089,3 @@ body.dark-theme .main-footer {
     transform: translateY(-3px);
 }
 
-.footer-bottom {
-    border-top: 1px solid var(--border-color);
-    padding: 30px 0;
-    text-align: center;
-    color: rgba(255, 255, 255, 0.6);
-}
-
-.footer-bottom p {
-    margin-bottom: 10px;
-}
-
-.footer-bottom p:last-child {
-    margin-bottom: 0;
-}
-
-.footer-bottom .tagline {
-    font-style: italic;
-    color: rgba(255, 255, 255, 0.8);
-    margin-top: 15px;
-}
