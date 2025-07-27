@@ -11,6 +11,7 @@
     --font-headline: 'Montserrat', sans-serif;
     --font-body: 'Lato', sans-serif;
     --border-color: #dee2e6;
+    --card-bg: #ffffff;
 }
 
 * {
@@ -984,9 +985,100 @@ body.dark-theme {
     border-color: var(--dark-blue);
 }
 
-/* 3. Add a new --card-bg variable to the root */
-:root {
-    /* ... (all your existing variables) ... */
-    --card-bg: #ffffff;
+.main-footer {
+    background-color: var(--dark-blue);
+    color: rgba(255, 255, 255, 0.8);
+    padding: 60px 0 0 0;
 }
 
+body.dark-theme .main-footer {
+    background-color: #111; 
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    padding-bottom: 40px;
+}
+
+.footer-column h4 {
+    font-family: var(--font-headline);
+    color: var(--light-text);
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.footer-column p {
+    line-height: 1.8;
+}
+
+.footer-column i {
+    margin-right: 10px;
+    color: var(--teal);
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-column ul a:hover {
+    color: var(--teal);
+    padding-left: 5px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    color: var(--dark-blue);
+    background-color: var(--light-text);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.social-icons a:hover {
+    background-color: var(--teal);
+    color: var(--light-text);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    border-top: 1px solid var(--border-color);
+    padding: 30px 0;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-bottom p {
+    margin-bottom: 10px;
+}
+
+.footer-bottom p:last-child {
+    margin-bottom: 0;
+}
+
+.footer-bottom .tagline {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 15px;
+}
