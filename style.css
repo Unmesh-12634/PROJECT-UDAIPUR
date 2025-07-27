@@ -11,7 +11,6 @@
     --font-headline: 'Montserrat', sans-serif;
     --font-body: 'Lato', sans-serif;
     --border-color: #dee2e6;
-
 }
 
 * {
@@ -985,6 +984,7 @@ body.dark-theme {
     border-color: var(--dark-blue);
 }
 
+/* 3. Add a new --card-bg variable to the root */
 :root {
     /* ... (all your existing variables) ... */
     --card-bg: #ffffff;
@@ -1088,4 +1088,3 @@ body.dark-theme .main-footer {
     color: var(--light-text);
     transform: translateY(-3px);
 }
-
