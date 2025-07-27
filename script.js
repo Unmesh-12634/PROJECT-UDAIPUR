@@ -73,53 +73,53 @@ description: "A beautiful historic hotel with stunning lake views, giving visito
 const cafes = [{
     name: "Udai Art Cafe",
     description: "The Udai Art Cafe is the perfect place to relax with an espresso or grab a bite to eat.",
-    image: "Udai.jpg",
+    image: "images/Udai.jpg",
     price: "₹400 per person",
         location: "Ganesh Ghati Road, Near Jagdish Temple"
 }, {
     name: "Cafe La Combida",
     description: "Our aim to serve freshly brewed coffee. Antique accent blend harmoniously with the contemporary vibe.",
-    image: "coffee la comida.jpg",
+    image: "images/coffee la comida.jpg",
     price: "₹300 per person",
     location: "Lal Ghat Road, Near Jagdish Temple"
 }, {
     name: "Restaurant Harigarh",
     description: "Panoramic views of Lake Pichola and the City Palace.",
-    image: "Restaurant Harigarh.jpg",
+    image: "images/Restaurant Harigarh.jpg",
     price: "₹600 per person",
      location: "Hanuman Ghat, Outside Chand Pole"
 }, {
     name: "Cafe Edelweiss",
     description: "European cafe with delicious pastries and coffee. A must-visit!",
-    image: "cafe.jpg",
+    image: "images/cafe.jpg",
     price: "₹350 per person",
     location: "Gangaur Ghat Road, Near Bagore Ki Haveli"
 }, {
     name: "Oladar Cafe",
     description: "Renowned for its charming décor, cosy atmosphere and classy vibe.",
-    image: "oladar cafe.jpg",
+    image: "images/oladar cafe.jpg",
     price: "₹250 per person",
     location: "Lake Palace Road, Kalaji Goraji"
 }, {
     name: "Backyard Rooftop Cafe",
     description: "Ideal for relaxed rooftop lounging, offering a soothing panoramic view of the lake.",
-    image: "Backyard.jpg",
+    image: "images/Backyard.jpg",
     price: "₹400 per person",
     location: "Pichola, Near Gadiya Devra Marg"
 }, {
     name: "Botanical Cafe",
     description: "Guests frequently praise the relaxing vibe and a cozy spot for a quiet coffee moment.",
-    image: "botanical .jpg",
+    image: "images/botanical .jpg",
     price: "₹300 per person"
 }, {
     name: "The Oven Project Cafe",
     description: "The space is modern, welcoming, and suited for laid-back meets or work breaks.",
-    image: "oven project cafe.jpg",
+    image: "images/oven project cafe.jpg",
     price: "₹200 per person"
 }, {
     name: "The Patio",
     description: "A classy bistro with a 90s Hollywood vibe, featuring breezy balcony seating.",
-    image: "patio cafe.jpg",
+    image: "images/patio cafe.jpg",
     price: "₹450 per person"
 }];
       
@@ -220,7 +220,7 @@ const tourPackages = [{
     duration: "1 Day Tour",
     title: "The Royal Udaipur Experience",
     price: 3500,
-    coverImage: "royal.jpg",
+    coverImage: "images/royal.jpg",
     description: "A whirlwind tour of Udaipur's most iconic royal landmarks in a single day.",
     itinerary: [{
         day: "Day 1",
@@ -232,7 +232,7 @@ const tourPackages = [{
     duration: "2 Days Tour",
     title: "Lakes & Legacy Tour",
     price: 6500,
-    coverImage: "royal2.jpg",
+    coverImage: "images/royal2.jpg",
     description: "Explore the royal history and serene lakes of Udaipur over two immersive days.",
     itinerary: [{
         day: "Day 1",
@@ -247,7 +247,7 @@ const tourPackages = [{
     duration: "3 Days Tour",
     title: "The Complete Udaipur Expedition",
     price: 9000,
-    coverImage: "fs.jpg",    
+    coverImage: "images/fs.jpg",    
     description: "A comprehensive journey through Udaipur's heritage, culture, and natural beauty.",
     itinerary: [{
         day: "Day 1",
@@ -265,7 +265,7 @@ const tourPackages = [{
     duration: "4 Days Tour",
     title: "Udaipur & Its Majestic Outskirts",
     price: 12500,
-    coverImage: "chittorgarh.webp",
+    coverImage: "images/chittorgarh.webp",
     description: "The ultimate tour covering Udaipur's finest sights and the legendary forts nearby.",
     itinerary: [{
         day: "Day 1",
