@@ -11,7 +11,7 @@ const hotels = [{
     }
 }, {
     id: 2,
-    name: "Amet Haveli, A Heritage hotel",
+    name: "Amet Haveli",
     rating: 4,
     description: "A beautifully restored heritage property in the heart of the old city, featuring traditional Rajasthani architecture and modern amenities.",
     image: "images/amet.webp",
