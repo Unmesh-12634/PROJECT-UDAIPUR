@@ -291,6 +291,7 @@ let currentCraftsSlide = 0;
 let currentShowSlide = 0;
 let selectedPackage = null;
 let currentPackagePersons = 1;
+let isLoggedIn = false;
 
 document.addEventListener("DOMContentLoaded", function() {
     renderHotels();
@@ -301,6 +302,7 @@ document.addEventListener("DOMContentLoaded", function() {
     initGSAP();
      renderPackagesList();
      setupThemeToggle();
+         updateAuthState();
 });
 
 function initGSAP() {
@@ -320,6 +322,41 @@ function initGSAP() {
             }
         });
     });
+}
+
+function updateAuthState() {
+    const loginBtn = document.getElementById('login-btn');
+    const userProfile = document.getElementById('user-profile');
+    if (isLoggedIn) {
+        loginBtn.style.display = 'none';
+        userProfile.style.display = 'block'; // Use 'block' to make the container visible
+    } else {
+        loginBtn.style.display = 'flex';
+        userProfile.style.display = 'none';
+    }
+}
+
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    google.accounts.id.initialize({
+        client_id: "1042027938000-68fetk7p2dc170eiu09i9287k4ntolcf.apps.googleusercontent.com", 
+        callback: handleCredentialResponse
+    });
+
+    
+    updateAuthState();
+});
+
+function handleCredentialResponse(response) {
+  const userObject = JSON.parse(atob(response.credential.split('.')[1]));
+  
+  isLoggedIn = true;
+  // Update the username inside the dropdown
+  document.getElementById('username-dropdown').textContent = userObject.name; 
+  updateAuthState();
+  closeModal(document.getElementById('loginModal'));
+  showToast(`Welcome, ${userObject.name}!`, 'success');
 }
 
 function renderGuides() {
@@ -497,7 +534,6 @@ function showToast(message, type = 'cancel') {
     const container = document.getElementById('toast-container');
     const toast = document.createElement('div');
     toast.className = 'toast';
-    // Add a class based on the type for different colors
     toast.classList.add(type === 'success' ? 'toast-success' : 'toast-cancel');
     toast.textContent = message;
 
@@ -630,6 +666,34 @@ function updatePackageTotalPrice() {
     document.getElementById('package-per-person-price').textContent = `(₹${selectedPackage.price} per person)`;
 }
 
+google.accounts.id.initialize({
+  client_id: "1042027938000-68fetk7p2dc170eiu09i9287k4ntolcf.apps.googleusercontent.com", // Replace with your OAuth Client ID
+  callback: handleCredentialResponse
+});
+
+google.accounts.id.renderButton(
+  document.getElementById("googleSignInDiv"),
+  { theme: "outline", size: "large" }
+);
+
+function handleCredentialResponse(response) {
+  console.log("Google Token:", response.credential);
+  isLoggedIn = true;
+  updateAuthState();
+  closeModal(document.getElementById("loginModal"));
+}
+
+document.getElementById("email-login-form").addEventListener("submit", (e) => {
+  e.preventDefault();
+  isLoggedIn = true;
+  updateAuthState();
+  closeModal(document.getElementById("loginModal"));
+});
+
+
+
+
+
 function setupEventListeners() {
     const hotelList = document.getElementById("hotelList");
     const hotelDetail = document.getElementById("hotelDetail");
@@ -660,8 +724,53 @@ function setupEventListeners() {
     const payNowBtn = document.getElementById("pay-now-btn");
     const paymentProcessing = document.getElementById("payment-processing");
     const paymentAmount = document.getElementById("payment-amount");
+    const loginBtn = document.getElementById("login-btn");
+const logoutBtn = document.getElementById("logout-btn");
+const loginModal = document.getElementById("loginModal");
+const userProfile = document.getElementById("user-profile");
+ const userProfileBtn = document.getElementById('user-profile-btn');
+    const userDropdown = document.getElementById('user-dropdown');
 
+ userProfileBtn.addEventListener('click', (event) => {
+        event.stopPropagation(); 
+        userDropdown.classList.toggle('active');
+    });
 
+    window.addEventListener('click', () => {
+        if (userDropdown.classList.contains('active')) {
+            userDropdown.classList.remove('active');
+        }
+    });
+    document.getElementById('logout-btn').addEventListener('click', () => {
+        isLoggedIn = false;
+        updateAuthState();
+        userDropdown.classList.remove('active'); 
+        showToast("You have been successfully logged out.", 'cancel');
+    });
+
+     
+
+document.getElementById('login-btn').addEventListener('click', () => {
+        openModal(loginModal);
+        
+        google.accounts.id.renderButton(
+            document.getElementById('google-btn-placeholder'), 
+            { theme: "outline", size: "large", type: "standard", text: "signin_with", shape: "rectangular", logo_alignment: "left" }
+        );
+    });
+
+    document.getElementById('logout-btn').addEventListener('click', () => {
+        isLoggedIn = false;
+        updateAuthState();
+        showToast("You have been successfully logged out.", 'cancel');
+    });
+
+loginBtn.addEventListener("click", () => openModal(loginModal));
+
+logoutBtn.addEventListener("click", () => {
+  isLoggedIn = false;
+  updateAuthState();
+});
 
      document.getElementById('confirm-and-pay-btn').addEventListener('click', () => {
         const total = bookings.reduce((sum, item) => sum + item.price, 0);
@@ -949,7 +1058,6 @@ function showPackageDetail(packageId) {
     packagesListView.style.display = 'none';
     packagesDetailView.style.display = 'block';
 }
-    
     const inclusionsList = document.getElementById("package-detail-inclusions");
     inclusionsList.innerHTML = "";
     pkg.inclusions.forEach(item => {
@@ -987,4 +1095,3 @@ function showPackageDetail(packageId) {
         localStorage.setItem('theme', theme);
     });
 }
-
