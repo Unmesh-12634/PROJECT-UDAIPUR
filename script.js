@@ -340,7 +340,7 @@ function updateAuthState() {
 document.addEventListener("DOMContentLoaded", function() {
 
     google.accounts.id.initialize({
-        client_id: "1042027938000-68fetk7p2dc170eiu09i9287k4ntolcf.apps.googleusercontent.com", 
+        client_id: "620087549726-ldrti27f70drp9kk3qpgjh48693c0e13.apps.googleusercontent.com", 
         callback: handleCredentialResponse
     });
 
@@ -667,7 +667,7 @@ function updatePackageTotalPrice() {
 }
 
 google.accounts.id.initialize({
-  client_id: "1042027938000-68fetk7p2dc170eiu09i9287k4ntolcf.apps.googleusercontent.com", // Replace with your OAuth Client ID
+  client_id: "620087549726-ldrti27f70drp9kk3qpgjh48693c0e13.apps.googleusercontent.com", // Replace with your OAuth Client ID
   callback: handleCredentialResponse
 });
 
