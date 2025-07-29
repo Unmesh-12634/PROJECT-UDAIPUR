@@ -352,7 +352,6 @@ function handleCredentialResponse(response) {
   const userObject = JSON.parse(atob(response.credential.split('.')[1]));
   
   isLoggedIn = true;
-    localStorage.setItem("user", JSON.stringify(userObject)); 
   // Update the username inside the dropdown
   document.getElementById('username-dropdown').textContent = userObject.name; 
   updateAuthState();
@@ -738,16 +737,6 @@ const loginModal = document.getElementById("loginModal");
 const userProfile = document.getElementById("user-profile");
  const userProfileBtn = document.getElementById('user-profile-btn');
     const userDropdown = document.getElementById('user-dropdown');
-    const savedUser = localStorage.getItem("user");
-
-
-      if (savedUser) {
-    const userObject = JSON.parse(savedUser);
-    isLoggedIn = true;
-    document.getElementById('username-dropdown').textContent = userObject.name;
-  }
-  updateAuthState(); // This will hide/show login button
-});
 
  userProfileBtn.addEventListener('click', (event) => {
         event.stopPropagation(); 
@@ -1143,4 +1132,21 @@ function showPackageDetail(packageId) {
         
         localStorage.setItem('theme', theme);
     });
+}
+
+function updateBookingBadge() {
+  const bookingsBadge = document.getElementById("bookingsBadge");
+  bookingsBadge.textContent = bookingCount;
+
+  if (bookingCount > 0) {
+    bookingsBadge.classList.add("show");
+
+    // 🔹 Add bounce animation every time a booking is added
+    bookingsBadge.classList.add("badge-animate");
+
+    // Remove animation class after it runs
+    setTimeout(() => bookingsBadge.classList.remove("badge-animate"), 300);
+  } else {
+    bookingsBadge.classList.remove("show");
+  }
 }
