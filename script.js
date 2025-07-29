@@ -686,17 +686,19 @@ function handleCredentialResponse(response) {
 document.getElementById("email-login-form").addEventListener("submit", (e) => {
   e.preventDefault();
   const email = document.getElementById('email').value;
- )
+
   const nameFromEmail = email.split('@')[0];
   const displayName = nameFromEmail.charAt(0).toUpperCase() + nameFromEmail.slice(1);
 
   isLoggedIn = true;
-  
+
   document.getElementById('username-dropdown').textContent = displayName;
   updateAuthState();
   closeModal(document.getElementById("loginModal"));
   showToast(`Welcome, ${displayName}!`, 'success');
 });
+
+
 
 
 function setupEventListeners() {
@@ -814,6 +816,37 @@ document.querySelector('.guide-list').addEventListener('click', e => {
             closeModal(document.getElementById('guideModal'));
         }
     });
+
+    cabForm.addEventListener("submit", e => {
+    e.preventDefault();
+    const pickupLocation = document.getElementById("pickupLocation").value;
+    const dropLocation = document.getElementById("dropLocation").value;
+    const cabType = document.getElementById("cabType").value;
+
+    if (!pickupLocation || !dropLocation) {
+        return alert("Please enter both pickup and drop locations.");
+    }
+
+    let price = 300;
+    if (cabType === "premium") price = 500;
+    if (cabType === "suv") price = 700;
+
+    const bookingDetails = {
+        type: "Transportation",
+        name: `Eco-Cab (${cabType})`,
+        price: price,
+        details: `From ${pickupLocation} to ${dropLocation}`
+    };
+
+    addBooking(bookingDetails);
+    closeModal(cabModal);
+
+    const ecoRide = document.getElementById("ecoRide");
+    const co2Counter = document.getElementById("co2Counter");
+    if (ecoRide && co2Counter) {
+        animateCounter(co2Counter, parseInt(co2Counter.textContent), parseInt(co2Counter.textContent) + 5, 1000);
+    }
+});
 
     document.querySelector(".guide-btn").addEventListener("click", () => {
         renderGuides(); 
