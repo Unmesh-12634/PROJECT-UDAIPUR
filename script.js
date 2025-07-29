@@ -666,10 +666,6 @@ function updatePackageTotalPrice() {
     document.getElementById('package-per-person-price').textContent = `(₹${selectedPackage.price} per person)`;
 }
 
-google.accounts.id.initialize({
-  client_id: "620087549726-ldrti27f70drp9kk3qpgjh48693c0e13.apps.googleusercontent.com", // Replace with your OAuth Client ID
-  callback: handleCredentialResponse
-});
 
 google.accounts.id.renderButton(
   document.getElementById("googleSignInDiv"),
