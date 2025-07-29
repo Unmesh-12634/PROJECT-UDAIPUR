@@ -685,13 +685,18 @@ function handleCredentialResponse(response) {
 
 document.getElementById("email-login-form").addEventListener("submit", (e) => {
   e.preventDefault();
+  const email = document.getElementById('email').value;
+ )
+  const nameFromEmail = email.split('@')[0];
+  const displayName = nameFromEmail.charAt(0).toUpperCase() + nameFromEmail.slice(1);
+
   isLoggedIn = true;
+  
+  document.getElementById('username-dropdown').textContent = displayName;
   updateAuthState();
   closeModal(document.getElementById("loginModal"));
+  showToast(`Welcome, ${displayName}!`, 'success');
 });
-
-
-
 
 
 function setupEventListeners() {
